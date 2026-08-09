@@ -1,0 +1,48 @@
+{
+    "name": "create-quik-app",
+    "version": "0.0.1",
+    "description": "A simple CLI tool to create Quik apps",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "files": [
+        "dist",
+        "templates"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch"
+    },
+    "keywords": [
+        "quik",
+        "typescript",
+        "nodejs",
+        "express",
+        "router",
+        "middleware",
+        "typescript",
+        "backend"
+    ],
+    "author": "desaubv",
+    "homepage": "https://github.com/DiegoBarajas/create-quik-app",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DiegoBarajas/create-quik-app.git"
+    },
+    "bugs": {
+        "url": "https://github.com/DiegoBarajas/create-quik-app/issues"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "tsup": "^8.5.1",
+        "typescript": "^7.0.2"
+    }
+}
