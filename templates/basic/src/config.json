@@ -1,0 +1,14 @@
+{
+    "global": {
+        "language": "en",
+        "timeZone": "America/Mexico_City"
+    },
+    
+    "logger": {
+
+    },
+
+    "server": {
+
+    }
+}
