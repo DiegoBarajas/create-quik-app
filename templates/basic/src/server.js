@@ -7,6 +7,9 @@ const server = Server();
 const config = require("./config.json");
 const validExtensions = [".js", ".ts"];
 
+// Clear console
+logger.clear();
+
 /* Auto Load routes */
 let routesMap = {};
 try {
