@@ -9,10 +9,10 @@
   "scripts": {
     "dev": "npx nodemon ./src/index.js"
   },
-  "dependencies": {
-    "@desaubv/quik": "file:../../../quik"
-  },
   "devDependencies": {
     "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "@desaubv/quik": "file:../../../quik"
   }
 }

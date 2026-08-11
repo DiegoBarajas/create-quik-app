@@ -1,17 +1,17 @@
 const fs = require("fs");
 const Path = require("path")
-const { QuikCron }= require("@desaubv/quik/cron");
 
 const { Server, logger } = require("@desaubv/quik");
 const server = Server();
 
+const config = require("./config.json");
 const validExtensions = [".js", ".ts"];
 
 /* Auto Load routes */
 let routesMap = {};
 try {
     const basePath = "./src/routes";
-    routesMap = loadRouteDir(basePath);
+    routesMap = loadRouteDir(basePath, config.api?.prefix);
     if (Object.keys(routesMap).length === 0) {
         logger.warning(`No routes found to load in ${basePath}.`);
     }
@@ -79,6 +79,13 @@ for (const i in cronMap) {
     }
 }
 
+/* Static html */
+const staticPath = "src/public";
+if (fs.existsSync(staticPath)) {
+    if(fs.readdirSync(staticPath).length > 0){
+        server.addStaticDir(staticPath);
+    }    
+}
 
 module.exports = server;
 

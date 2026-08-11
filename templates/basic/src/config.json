@@ -10,5 +10,9 @@
 
     "server": {
 
+    },
+    
+    "api": {
+        "prefix": "/api"
     }
 }
