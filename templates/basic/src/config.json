@@ -1,18 +1,45 @@
 {
-    "global": {
+    "app": { 
         "language": "en",
         "timeZone": "America/Mexico_City"
     },
-    
-    "logger": {
 
-    },
 
     "server": {
-
+        "http": {
+            "port": 8080,
+            "host": "localhost"
+        },
+        "express": {
+            "trustProxy": false
+        },
+        "bodyParser": {
+            "type": "json"
+        },
+        "static": "src/static"
     },
-    
     "api": {
         "prefix": "/api"
+    },
+    
+
+    "logger": {
+        "format": {
+            "timestampFormat": "DD-MM-YYYY hh:mm:ss",
+            "titleCase": "uppercase"
+        },
+        "save": {
+            "infoFilePath": null,
+            "logFilePath": null,
+            "errorFilePath": "logs/error.log",
+            "warningFilePath": "logs/warning.log"
+        },
+        "color": {
+            "logColor": "blue",
+            "infoColor": "green",
+            "errorColor": "red",
+            "warningColor": "yellow",
+            "debugColor": null
+        }
     }
 }

@@ -2,13 +2,12 @@ const fs = require("fs");
 const Path = require("path")
 
 const { Server, logger } = require("@desaubv/quik");
-const server = Server();
 
 const config = require("./config.json");
-const validExtensions = [".js", ".ts"];
+require("./logger");
 
-// Clear console
-logger.clear();
+const server = Server();
+const validExtensions = [".js", ".ts"];
 
 /* Auto Load routes */
 let routesMap = {};
@@ -83,12 +82,16 @@ for (const i in cronMap) {
 }
 
 /* Static html */
-const staticPath = "src/public";
-if (fs.existsSync(staticPath)) {
-    if(fs.readdirSync(staticPath).length > 0){
-        server.addStaticDir(staticPath);
-    }    
+const staticPath = config.server.static;
+if(staticPath){
+    server.addStaticDir(staticPath);
 }
+
+// Load config
+server.setConfig({
+    ...config.server,
+    language: config.app.language
+});
 
 module.exports = server;
 

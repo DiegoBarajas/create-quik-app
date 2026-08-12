@@ -26,7 +26,6 @@ router.post((req, res) => {
         },
         "status": {
             type: Types.Array(Types.Int, Types.Boolean).canBeEmpty(),
-            required: true
         },
         "user": {
             type: Types.Struct({
@@ -38,6 +37,20 @@ router.post((req, res) => {
                     type: Types.Int,
                     required: true,
                     validator: ageValidator
+                },
+                "user": {
+                    type: Types.Struct({
+                        "name": {
+                            type: [Types.Null, Types.String],
+                            required: true
+                        },
+                        "age": {
+                            type: Types.Int,
+                            required: true,
+                            validator: ageValidator
+                        }
+                    }),
+                    required: true
                 }
             }),
             required: true

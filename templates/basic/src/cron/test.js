@@ -1,10 +1,16 @@
+const { logger } = require("@desaubv/quik");
 const { Cron, Schedule } = require("@desaubv/quik/cron");
 const cron = Cron();
+
+const handleError = (error) => {
+    logger.error("[ CRON ]",error.message);
+}
 
 // Configuration
 cron.setConfig({
     language: "es",
     timeZone: "America/Mexico_City",
+    onError: handleError
 });
 
 // Tasks
