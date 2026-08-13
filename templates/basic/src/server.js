@@ -82,9 +82,14 @@ for (const i in cronMap) {
 }
 
 /* Static html */
-const staticPath = config.server.static;
+const staticPath = config.server.staticPath;
 if(staticPath){
     server.addStaticDir(staticPath);
+}
+
+// Load ws
+if(fs.existsSync(Path.resolve("./src/socket.js"))){
+    server.addSocket(require("./socket"));
 }
 
 // Load config

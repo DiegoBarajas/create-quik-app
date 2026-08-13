@@ -16,7 +16,7 @@
         "bodyParser": {
             "type": "json"
         },
-        "static": "src/static"
+        "staticPath": "src/static"
     },
     "api": {
         "prefix": "/api"
